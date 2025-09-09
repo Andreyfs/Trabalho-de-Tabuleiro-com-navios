@@ -1,0 +1,50 @@
+import random
+
+def gerar_navio_vertical(largura, altura, tamanho):
+    x = random.randint(1, largura)
+    y = random.randint(1, altura - tamanho + 1)
+    return [[x, y + i] for i in range(tamanho)]
+
+def gerar_navio_horizontal_com_colisao(largura, altura, tamanho, ponto_colisao):
+    colisao_x, colisao_y = ponto_colisao
+    min_inicio = max(1, colisao_x - tamanho + 1)
+    max_inicio = min(colisao_x, largura - tamanho + 1)
+    x = random.randint(min_inicio, max_inicio)
+    y = colisao_y
+    return [[x + i, y] for i in range(tamanho)]
+
+def desenhar_tabuleiro(largura, altura, coords_v, coords_h):
+    set_v = {tuple(c) for c in coords_v}
+    set_h = {tuple(c) for c in coords_h}
+    intersecao = sorted(set_v & set_h)
+
+    grade = [["." for _ in range(largura)] for _ in range(altura)]
+    for x, y in set_v:
+        grade[y-1][x-1] = "V"
+    for x, y in set_h:
+        grade[y-1][x-1] = "X" if grade[y-1][x-1] == "V" else "H"
+
+    cabec = "   " + " ".join(f"{x:>2}" for x in range(1, largura+1))
+    print(cabec)
+    for y in range(1, altura+1):
+        linha = " ".join(f"{c:>2}" for c in grade[y-1])
+        print(f"{y:>2} {linha}")
+
+    return intersecao
+
+def main():
+    largura, altura = 10, 10
+    tamanho_v, tamanho_h = 4, 3
+
+    coords_v = gerar_navio_vertical(largura, altura, tamanho_v)
+    ponto_colisao = random.choice(coords_v)
+    coords_h = gerar_navio_horizontal_com_colisao(largura, altura, tamanho_h, ponto_colisao)
+
+    print("Coordenadas do Navio Vertical:", coords_v)
+    print("Coordenadas do Navio Horizontal:", coords_h)
+
+    intersecao = desenhar_tabuleiro(largura, altura, coords_v, coords_h)
+    print("\n➡️ Colisão garantida nas posições:", intersecao)
+
+if __name__ == "__main__":
+    main()
