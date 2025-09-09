@@ -1,0 +1,9 @@
+feat: criar função para gerar navio vertical
+
+feat: implementar geração de navio horizontal com colisão garantida
+
+feat: adicionar renderização do tabuleiro com marcações
+
+docs: criar README com instruções de instalação e uso
+
+chore: adicionar requirements.txt
