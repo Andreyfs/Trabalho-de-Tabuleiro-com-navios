@@ -1,0 +1,18 @@
+Este projeto está sob a licença MIT. Sinta-se livre para usar e modificar.
+---
+
+## ✅ Próximos passos
+
+1. Criar o repositório no GitHub:
+   - Nome sugerido: **`batalha-naval`**
+   - Licença: MIT
+   - Adicione o `.gitignore` para Python.
+
+2. Subir os arquivos:
+   ```bash
+   git init
+   git add .
+   git commit -m "feat: primeira versão do simulador de batalha naval com colisão garantida"
+   git branch -M main
+   git remote add origin https://github.com/SEU_USUARIO/batalha-naval.git
+   git push -u origin main
