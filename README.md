@@ -1,2 +1,7 @@
-# Trabalho-de-Tabuleiro-com-navios
-Tabuleiro com navios
+batalha-naval/
+│
+├── src/
+│   └── batalha_naval.py
+│
+├── README.md
+└── requirements.txt
