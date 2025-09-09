@@ -27,7 +27,9 @@ O objetivo é gerar automaticamente dois navios (um vertical e um horizontal) em
 python -m venv venv
 source venv/bin/activate  # Linux/Mac
 venv\Scripts\activate     # Windows
+
 3:Instale os requisitos (não há dependências externas, mas arquivo incluso para padrão):
 pip install -r requirements.txt
+
 4:Execute o jogo:
 python src/batalha_naval.py
